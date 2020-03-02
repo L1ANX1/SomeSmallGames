@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ShapeMatchGame/_Scenes/Main.unity
+    guid: c4b6578ad8df6d54ebdac79c7e31331f
