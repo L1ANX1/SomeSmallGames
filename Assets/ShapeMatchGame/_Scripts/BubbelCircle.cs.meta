@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 8e64b0984a1f0fe498d8885c74bce83b
-timeCreated: 1583075018
+guid: 775a60747227a784b8088d67e4b16114
+timeCreated: 1583811214
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mSprite: {fileID: 21300012, guid: 08abfdae98c6e5946bc853e5731b4913, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

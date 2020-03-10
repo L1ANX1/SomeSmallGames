@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4407265503608286}
   - component: {fileID: 198864818655830062}
-  - component: {fileID: 114847155445928408}
+  - component: {fileID: 114134199689385290}
   - component: {fileID: 199143129141414858}
   m_Layer: 0
   m_Name: DestoryPaticleSystem
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114847155445928408
+--- !u!114 &114134199689385290
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,10 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994415168522434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e64b0984a1f0fe498d8885c74bce83b, type: 3}
+  m_Script: {fileID: 11500000, guid: eb8921f072e08c24fb328cf8ea742c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destoryDelay: 2
+  destoryDelay: 1
 --- !u!198 &198864818655830062
 ParticleSystem:
   m_ObjectHideFlags: 1

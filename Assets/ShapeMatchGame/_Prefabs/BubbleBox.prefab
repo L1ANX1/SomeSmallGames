@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212372252860254920}
   - component: {fileID: 50845273141389484}
   - component: {fileID: 61095372472284782}
-  - component: {fileID: 114968657274049428}
   m_Layer: 0
   m_Name: BubbleBox
   m_TagString: box
@@ -88,17 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
---- !u!114 &114968657274049428
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353978533804880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194bbffee4e786d4d8229ee362ace21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212372252860254920
 SpriteRenderer:
   m_ObjectHideFlags: 1
