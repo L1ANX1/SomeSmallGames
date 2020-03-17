@@ -8,16 +8,19 @@ namespace ShapeMatchGame
 
     public class PlayerController : MonoBehaviour
     {
-        [HideInInspector] public GameController gameController;
-        [HideInInspector] public Rigidbody2D rigidbody;
         public static PlayerController _instance;
+        [Header("Private: ")]
+        public GameManager gameManager;
+        public GameController gameController;
+        public Rigidbody2D rigidbody;
 
-        [Header("Player move Speed:")]
+        [Header("Player move :")]
         public float playerSpeed;
-        // Move
         float moveHorizontal = 0, moveVertical = 0;
         Vector3 movement;
         bool isAddForce = false;
+
+        public Vector3 PlayerPosition { get { return rigidbody.transform.position; } set { rigidbody.transform.position = value; } }
 
         private void Awake()
         {
@@ -27,6 +30,7 @@ namespace ShapeMatchGame
         // Use this for initialization
         void Start()
         {
+            gameManager = GameManager.Instance;
             gameController = GameController._instance;
             rigidbody = GetComponent<Rigidbody2D>();
         }
@@ -58,7 +62,7 @@ namespace ShapeMatchGame
         void OnTriggerEnter2D(Collider2D collision)
         {
             bool isAddScore = false;
-            switch (gameController.gameManager.currentMode)
+            switch (gameManager.CurrentMode)
             {
                 case Mode.circle:
                     if (collision.name.StartsWith("BubbleCircle"))

@@ -8,25 +8,23 @@ namespace ShapeMatchGame
 {
     public class GameController : MonoBehaviour
     {
+        public static GameController _instance;
+        [Header("Private: ")]
+        public GameManager gameManager;
+        float timer = 0f;
+        int score = 0;
+
         [Header("Basic settings: ")]
         public Text timerText;
         public Text ScoreText;
         public Text InfoText;
         bool isGameEnd = false;
 
-        [HideInInspector] public float timer = 0f;
-        int score = 0;
-
         [Header("Bubble gen rate range:")]
-        [Range(2, 5)] public float genBubbleRateMin;
-        [Range(5, 7)] public float genBubbleRateMax;
-
-        public static GameController _instance;
-
         BubbleGenerator[] bubbleGenerators;
         int generatorCount = 0;
-        [HideInInspector] public GameManager gameManager;
-
+        [Range(2, 5)] public float genBubbleRateMin;
+        [Range(5, 7)] public float genBubbleRateMax;
 
         [Header("Mode change related :")]
         public SpriteRenderer playerSpriteRender;
@@ -41,22 +39,22 @@ namespace ShapeMatchGame
         private void Awake()
         {
             _instance = this;
+            Init();
         }
 
         void Init()
         {
+            gameManager = GameManager.Instance;
             bubbleGenerators = GetComponentsInChildren<BubbleGenerator>();
             timerText.text = "Timer:\n 0.0 s";
             ScoreText.text = "Score:\n 0";
-            gameManager.currentMode = Mode.circle;
+            gameManager.CurrentMode = Mode.circle;
             ChangeMode(Mode.circle);
         }
 
         // Use this for initialization
         void Start()
         {
-            gameManager = new GameManager();
-            Init();
             GameStart();
         }
 
@@ -115,17 +113,17 @@ namespace ShapeMatchGame
 
         public void ChangeMode()
         {
-            switch (gameManager.currentMode)
+            switch (gameManager.CurrentMode)
             {
                 case Mode.circle:
                     buttonImage.sprite = circleSprite;
                     playerSpriteRender.sprite = boxSprite;
-                    gameManager.currentMode = Mode.box;
+                    gameManager.CurrentMode = Mode.box;
                     break;
                 case Mode.box:
                     buttonImage.sprite = boxSprite;
                     playerSpriteRender.sprite = circleSprite;
-                    gameManager.currentMode = Mode.circle;
+                    gameManager.CurrentMode = Mode.circle;
                     break;
                 default:
                     break;
@@ -139,12 +137,12 @@ namespace ShapeMatchGame
                 case Mode.circle:
                     buttonImage.sprite = boxSprite;
                     playerSpriteRender.sprite = circleSprite;
-                    gameManager.currentMode = Mode.circle;
+                    gameManager.CurrentMode = Mode.circle;
                     break;
                 case Mode.box:
                     buttonImage.sprite = circleSprite;
                     playerSpriteRender.sprite = boxSprite;
-                    gameManager.currentMode = Mode.box;
+                    gameManager.CurrentMode = Mode.box;
                     break;
                 default:
                     break;

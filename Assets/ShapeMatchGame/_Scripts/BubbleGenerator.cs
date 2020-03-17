@@ -13,8 +13,10 @@ namespace ShapeMatchGame
 
     public class BubbleGenerator : MonoBehaviour
     {
-        [HideInInspector] public GameController gameController;
+        [Header("Private: ")]
+        GameController gameController;
         PlayerController playerController;
+        GameManager gameManager;
 
         public Boundary boundary;
         public BubbleGenDir currentGenDir;       // for tell is the bubble leave the broder (not the one it was generated)
@@ -22,14 +24,14 @@ namespace ShapeMatchGame
         public GameObject circlePrefab;
         public GameObject boxPrefab;
         public float speed;
+
         // Use this for initialization
         void Start()
         {
             playerController = PlayerController._instance;
             gameController = GameController._instance;
+            gameManager = GameManager.Instance;
         }
-
-
 
         /// <summary>
         /// Generate A Bubble.
@@ -73,10 +75,9 @@ namespace ShapeMatchGame
             float x = Random.Range(boundary.xMin, boundary.xMax);
             float y = Random.Range(boundary.yMin, boundary.yMax);
             int ran = Random.Range(0, 100);
-            // Debug.Log(gameController.gameManager.currentMode + " " + ran);
             // direction from bubble generated to player
-            Vector2 dir = new Vector2(playerController.rigidbody.position.x - x, playerController.rigidbody.position.y - y);
-            switch (gameController.gameManager.currentMode)
+            Vector2 dir = new Vector2(playerController.PlayerPosition.x - x, playerController.PlayerPosition.y - y);
+            switch (gameManager.CurrentMode)
             {
                 case Mode.circle:
                     if (ran < 75)
